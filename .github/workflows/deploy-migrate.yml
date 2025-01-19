@@ -5,6 +5,15 @@ on:
       - main
 
 jobs:
-  steps:
-    - run: npm install
-    - run: npx prisma migrate deploy
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy Prisma migrations
+        run: npx prisma migrate deploy
