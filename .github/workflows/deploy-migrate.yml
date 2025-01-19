@@ -1,11 +1,12 @@
 name: push to production database
-on: push
+on:
+  push:
     branches:
       - main
 
 jobs:
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-      - run: npm install
-      - run: npx prisma migrate deploy
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v3
+    - run: npm install
+    - run: npx prisma migrate deploy
