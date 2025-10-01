@@ -1,10 +1,11 @@
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import globals from "globals";
+import vitest from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
-import { globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-export default tseslint.config([
+export default defineConfig([
   globalIgnores(["dist"]),
   {
     files: ["**/*.{ts,tsx}"],
@@ -32,6 +33,15 @@ export default tseslint.config([
       ],
     },
   },
-
   eslintConfigPrettier,
+  {
+    files: ["**/*.test.{ts,tsx}"],
+    plugins: {
+      vitest,
+    },
+    rules: {
+      ...vitest.configs.all.rules,
+      "@typescript-eslint/unbound-method": "off",
+    },
+  },
 ]);
