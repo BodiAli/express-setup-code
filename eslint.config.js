@@ -11,7 +11,7 @@ export default defineConfig([
     files: ["**/*.{ts,tsx}"],
     extends: [
       js.configs.recommended,
-      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.strictTypeChecked,
       tseslint.configs.stylisticTypeChecked,
     ],
     languageOptions: {
@@ -32,6 +32,8 @@ export default defineConfig([
           varsIgnorePattern: "^_",
         },
       ],
+      "@typescript-eslint/restrict-template-expressions": ["error", { allowNumber: true }],
+      "@typescript-eslint/no-empty-object-type": ["error", { allowInterfaces: "with-single-extends" }],
     },
   },
   eslintConfigPrettier,
