@@ -43,6 +43,7 @@ export default defineConfig([
           ],
         },
       ],
+      "import-x/no-cycle": "error",	    
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
