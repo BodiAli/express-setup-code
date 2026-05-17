@@ -16,6 +16,7 @@ export default defineConfig([
       tseslint.configs.stylisticTypeChecked,
       importX.flatConfigs.recommended,
       importX.flatConfigs.typescript,
+      eslintConfigPrettier,
     ],
     languageOptions: {
       globals: {
@@ -43,7 +44,7 @@ export default defineConfig([
           ],
         },
       ],
-      "import-x/no-cycle": "error",	    
+      "import-x/no-cycle": "error",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -61,14 +62,10 @@ export default defineConfig([
       ],
     },
   },
-  eslintConfigPrettier,
   {
     files: ["**/*.test.{ts,tsx}"],
-    plugins: {
-      vitest,
-    },
+    extends: [vitest.configs.all],
     rules: {
-      ...vitest.configs.all.rules,
       "@typescript-eslint/unbound-method": "off",
       "vitest/require-hook": ["error", { allowedFunctionCalls: ["app.use"] }],
       "vitest/no-hooks": "off",

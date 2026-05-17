@@ -8,6 +8,7 @@
     "types": [
       "node"
     ],
+    "rewriteRelativeImportExtensions": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     // Style Options
