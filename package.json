@@ -2,7 +2,7 @@
   "name": "express-setup-code",
   "version": "1.0.0",
   "description": "express template",
-  "main": "./src/app.ts",
+  "main": "app.ts",
   "type": "module",
   "scripts": {
     "test": "NODE_ENV=test vitest"
